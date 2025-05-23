@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thrifty Finds - Affordable Shopping</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+    <!-- Header/Navbar -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="#"><i class="fas fa-recycle"></i> ThriftyFinds</a>
+            </div>
+            
+          
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            
+          
+            <div class="auth-buttons">
+                <button id="userLoginBtn" class="btn">Log in</button>
+                 <!-- <button class="btn"><a href="login.html">Login</a></button> -->
+                <button id="sellerLoginBtn" class="btn btn-outline">Seller ?</button>
+            </div>
+          
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="animate-pop-in">Find Amazing Deals on Pre-Loved Items</h1>
+                <p class="animate-pop-in">Quality second-hand products at affordable prices. Save money and the environment!</p>
+                <div class="search-box animate-pop-in">
+                    <input type="text" placeholder="Search for items...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <div class="hero-image animate-pop-in">
+                <img src="images/lg-removebg-preview.png" alt="Thrifty Finds">
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Modals -->
+    <div id="userLoginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>User Login</h2>
+            <form id="userLoginForm">
+                <div class="form-group">
+                    <label for="userEmail">Email</label>
+                    <input type="email" id="userEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="userPassword">Password</label>
+                    <input type="password" id="userPassword" required>
+                </div>
+
+                
+                <!-- Recommendation Questions -->
+                <div class="recommendation-questions">
+                    <h3>Help us recommend better items for you!</h3>
+                    <div class="form-group">
+                        <label>What categories interest you most?</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="interests" value="Samsung"> Samsung</label>
+                            <label><input type="checkbox" name="interests" value="iPhone"> iPhone</label>
+                            <label><input type="checkbox" name="interests" value="Redmi"> Redmi</label>
+                            <label><input type="checkbox" name="interests" value="Vivo"> Vivo</label>
+                            <label><input type="checkbox" name="interests" value="Nokia"> Nokia</label>
+                            <label><input type="checkbox" name="interests" value="oppo"> oppo</label>
+                            <label><input type="checkbox" name="interests" value="itel"> itel</label>
+
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>What's your typical budget range?</label>
+                        <select id="userBudget">
+                            <option value="0-20">$0 - $20</option>
+                            <option value="20-50">$20 - $50</option>
+                            <option value="50-100">$50 - $100</option>
+                            <option value="100+">$100+</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn">Login</button>
+                <p class="switch-auth">Not a user? <a href="#" id="switchToSeller">Login as seller</a></p>
+            </form>
+        </div>
+    </div>
+
+    <div id="sellerLoginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Seller Login</h2>
+            <form id="sellerLoginForm">
+                <div class="form-group">
+                    <label for="sellerEmail">Email</label>
+                    <input type="email" id="sellerEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="sellerPassword">Password</label>
+                    <input type="password" id="sellerPassword" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <p class="switch-auth">Not a seller? <a href="#" id="switchToUser">Login as user</a></p>
+            </form>
+        </div>
+    </div>
+
+  <!-- Add this filter section above the featured products -->
+<section class="product-filters">
+    <div class="container">
+        <div class="filter-group">
+            <label for="brand-filter">Filter by Brand:</label>
+            <select id="brand-filter">
+                <option value="all">All Brands</option>
+                <option value="samsung">Samsung</option>
+                <option value="realme">Realme</option>
+                <option value="apple">Apple</option>
+                <option value="tecno">Tecno</option>
+                <option value="nokia">Nokia</option>
+                <option value="oppo">Oppo</option>
+                <option value="oneplus">OnePlus</option>
+                <option value="xiaomi">Xiaomi</option>
+                <option value="vivo">Vivo</option>
+                <option value="infinix">Infinix</option>
+            </select>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Products Section -->
+<section id="products" class="featured-products">
+    <div class="container">
+        <h2>Featured Products</h2>
+        <div class="product-grid">
+            
+            <!-- Samsung Products -->
+            <div class="product-card animate-pop-in" data-brand="samsung" data-category="mobile">
+                <div class="product-image">
+                    <img src="images/samsung/Samsung-Galaxy-S25-Ultra-Titanium-Grey.jpg" alt="Samsung Galaxy S25 Ultra" loading="lazy" >
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Galaxy S25 Ultra (12/256GB)</h3>
+                    <div class="product-price">Rs. 184,999</div>
+                    <div class="product-rating">★★★★★</div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">Buy Now</button>
+                        <button class="wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card animate-pop-in" data-brand="samsung" data-category="mobile">
+                <div class="product-image">
+                    <img src="images/samsung/z-fold6.jpg" alt="Samsung Galaxy Z Fold 6" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Galaxy Z Fold 6 (12/256GB)</h3>
+                    <div class="product-price">Rs. 214,999</div>
+                    <div class="product-rating">★★★★★</div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">Buy Now</button>
+                        <button class="wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Continue with all Samsung products -->
+            <div class="product-card animate-pop-in" data-brand="samsung" data-category="mobile">
+                <div class="product-image">
+                    <img src="images/samsung/a35.jpg" alt="Samsung Galaxy A35" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Galaxy A35 5G (8/128GB)</h3>
+                    <div class="product-price">Rs. 46,999</div>
+                    <div class="product-rating">★★★★☆</div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">Buy Now</button>
+                        <button class="wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card animate-pop-in" data-brand="samsung" data-category="mobile">
+                <div class="product-image">
+                    <img src="images/samsung/m14.jpg" alt="Samsung Galaxy M14" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Galaxy M14 4G (4/64GB)</h3>
+                    <div class="product-price">Rs. 16,999</div>
+                    <div class="product-rating">★★★☆☆</div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">Buy Now</button>
+                        <button class="wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card animate-pop-in" data-brand="samsung" data-category="mobile">
+                <div class="product-image">
+                    <img src="images/samsung/a06.jpg" alt="Samsung Galaxy A06" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Galaxy A06 (4/64GB)</h3>
+                    <div class="product-price">Rs. 15,499</div>
+                    <div class="product-rating">★★★☆☆</div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">Buy Now</button>
+                        <button class="wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Realme Products -->
+            <div class="product-card animate-pop-in" data-brand="realme" data-category="mobile">
+                <div class="product-image">
+                    <img src="images/realme/gt6t.jpg" alt="Realme GT 6T" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Realme GT 6T (12/512GB)</h3>
+                    <div class="product-price">Rs. 65,999</div>
+                    <div class="product-rating">★★★★☆</div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">Buy Now</button>
+                        <button class="wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card animate-pop-in" data-brand="realme" data-category="mobile">
+                <div class="product-image">
+                    <img src="images/realme/12proplus.jpg" alt="Realme 12 Pro Plus" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Realme 12 Pro Plus (12/256GB)</h3>
+                    <div class="product-price">Rs. 50,999</div>
+                    <div class="product-rating">★★★★☆</div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">Buy Now</button>
+                        <button class="wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Continue with all Realme products -->
+            <div class="product-card animate-pop-in" data-brand="realme" data-category="mobile">
+                <div class="product-image">
+                    <img src="images/realme/12x.jpg" alt="Realme 12X 5G" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Realme 12X 5G (8/128GB)</h3>
+                    <div class="product-price">Rs. 24,999</div>
+                    <div class="product-rating">★★★☆☆</div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">Buy Now</button>
+                        <button class="wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card animate-pop-in" data-brand="realme" data-category="mobile">
+                <div class="product-image">
+                    <img src="images/realme/c63.jpg" alt="Realme C63" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Realme C63 (4/128GB)</h3>
+                    <div class="product-price">Rs. 15,999</div>
+                    <div class="product-rating">★★★☆☆</div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">Buy Now</button>
+                        <button class="wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card animate-pop-in" data-brand="realme" data-category="mobile">
+                <div class="product-image">
+                    <img src="images/realme/c30s.jpg" alt="Realme C30s" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Realme C30s (2/32GB)</h3>
+                    <div class="product-price">Rs. 13,499</div>
+                    <div class="product-rating">★★☆☆☆</div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">Buy Now</button>
+                        <button class="wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Apple Products -->
+            <div class="product-card animate-pop-in" data-brand="apple" data-category="mobile">
+                <div class="product-image">
+                    <img src="images/apple/15promax.jpg" alt="iPhone 15 Pro Max" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">iPhone 15 Pro Max (256GB)</h3>
+                    <div class="product-price">Rs. 233,499</div>
+                    <div class="product-rating">★★★★★</div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">Buy Now</button>
+                        <button class="wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Continue with all Apple products -->
+            <div class="product-card animate-pop-in" data-brand="apple" data-category="mobile">
+                <div class="product-image">
+                    <img src="images/apple/15pro.jpg" alt="iPhone 15 Pro" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">iPhone 15 Pro (256GB)</h3>
+                    <div class="product-price">Rs. 214,990</div>
+                    <div class="product-rating">★★★★★</div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">Buy Now</button>
+                        <button class="wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+            <!-- Example of one more product (Tecno Phantom V Fold 2) -->
+            <div class="product-card animate-pop-in" data-brand="tecno" data-category="mobile">
+                <div class="product-image">
+                    <img src="images/tecno/phantom-vfold.jpg" alt="Tecno Phantom V Fold 2">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Phantom V Fold 2 (12/512GB)</h3>
+                    <div class="product-price">Rs. 159,999</div>
+                    <div class="product-rating">★★★★☆</div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">Buy Now</button>
+                        <button class="wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+</section>
+
+    <!-- Recommendation Section -->
+    <section class="recommendations">
+        <div class="container">
+            <h2>Recommended For You</h2>
+            <div class="recommendation-grid">
+                <!-- Recommendations will be loaded here after login -->
+                <div class="login-prompt">
+                    <p>Login to see personalized recommendations!</p>
+                    <button id="recLoginBtn" class="btn">Login Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ThriftyFinds</h3>
+                    <p>Making second-hand shopping easy and affordable since 2025.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> info@thriftyfinds.com</p>
+                    <p><i class="fas fa-phone"></i> +977 9800000000</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ThriftyFinds. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+   
+    <script src="script.js"></script>
+</body>
+</html>
