@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Dashboard - ThriftyFinds</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="seller.css">
+</head>
+<body>
+    <!-- Seller Header -->
+    <header class="seller-header">
+        <div class="container">
+            <div class="logo">
+                <a href="#"><i class="fas fa-store"></i> ThriftyFinds Seller</a>
+            </div>
+            <nav class="seller-nav">
+                <ul>
+                    <li><a href="#" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="#products"><i class="fas fa-mobile-alt"></i> My Products</a></li>
+                    <li><a href="#add-product"><i class="fas fa-plus-circle"></i> Add Product</a></li>
+                    <li><a href="#orders"><i class="fas fa-shopping-bag"></i> Orders</a></li>
+                </ul>
+            </nav>
+            <div class="seller-actions">
+                <button id="logoutBtn" class="btn btn-outline"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dashboard Overview -->
+    <section class="dashboard-overview">
+        <div class="container">
+            <h2>Seller Dashboard</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <div class="stat-info">
+                        <h3>Total Products</h3>
+                        <p id="totalProducts">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-shopping-bag"></i></div>
+                    <div class="stat-info">
+                        <h3>Total Orders</h3>
+                        <p id="totalOrders">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-rupee-sign"></i></div>
+                    <div class="stat-info">
+                        <h3>Total Earnings</h3>
+                        <p id="totalEarnings">Rs. 0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add Product Section -->
+    <section id="add-product" class="add-product-section">
+        <div class="container">
+            <h2>Add New Product</h2>
+            <form id="productForm" enctype="multipart/form-data">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productBrand">Brand</label>
+                        <select id="productBrand" required>
+                            <option value="">Select Brand</option>
+                            <option value="samsung">Samsung</option>
+                            <option value="apple">Apple</option>
+                            <option value="xiaomi">Xiaomi</option>
+                            <option value="oneplus">OnePlus</option>
+                            <option value="oppo">Oppo</option>
+                            <option value="vivo">Vivo</option>
+                            <option value="realme">Realme</option>
+                            <option value="tecno">Tecno</option>
+                            <option value="infinix">Infinix</option>
+                            <option value="nokia">Nokia</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="productModel">Model Name</label>
+                        <input type="text" id="productModel" placeholder="e.g., Galaxy S25 Ultra" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productPrice">Price (NPR)</label>
+                        <input type="number" id="productPrice" placeholder="e.g., 184999" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="productStorage">Storage</label>
+                        <input type="text" id="productStorage" placeholder="e.g., 12/256GB" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="productDescription">Description</label>
+                    <textarea id="productDescription" rows="4" placeholder="Enter product description..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="productImage">Product Image</label>
+                    <div class="image-upload-container">
+                        <input type="file" id="productImage" accept="image/*" required>
+                        <div class="image-preview" id="imagePreview">
+                            <img id="previewImage" src="#" alt="Preview" style="display: none;">
+                            <p>No image selected</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn"><i class="fas fa-plus-circle"></i> Add Product</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- My Products Section -->
+    <section id="products" class="my-products-section">
+        <div class="container">
+            <h2>My Products</h2>
+            <div class="product-list" id="productList">
+                <!-- Products will be loaded here via JavaScript -->
+                <div class="no-products">
+                    <p>You haven't added any products yet.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="seller.js"></script>
+</body>
+</html>
