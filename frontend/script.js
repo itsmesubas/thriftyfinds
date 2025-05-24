@@ -135,10 +135,6 @@
             <button class="btn btn-outline"><i class="fas fa-sign-out-alt"></i> Logout</button>
         `;
     }
-
-   
-
-      
     // Generate recommendations based on user interests
     function generateRecommendations(interests, budget) {
         const allProducts = [

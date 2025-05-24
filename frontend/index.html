@@ -134,8 +134,9 @@
             <label for="brand-filter">Filter by Brand:</label>
             <select id="brand-filter">
                 <option value="all">All Brands</option>
-                <option value="samsung">Samsung</option>
-                <option value="realme">Realme</option>
+                <a href="#samsung" ><option  value="samsung">Samsung</option></a>
+                <a href="#realme" ><option  value="samsung">Realme</option></a>
+
                 <option value="apple">Apple</option>
                 <option value="tecno">Tecno</option>
                 <option value="nokia">Nokia</option>
@@ -153,9 +154,10 @@
 <section id="products" class="featured-products">
     <div class="container">
         <h2>Featured Products</h2>
-        <div class="product-grid">
+        <div class="product-grid" id="samsung">
             
             <!-- Samsung Products -->
+
             <div class="product-card animate-pop-in" data-brand="samsung" data-category="mobile">
                 <div class="product-image">
                     <img src="images/samsung/Samsung-Galaxy-S25-Ultra-Titanium-Grey.jpg" alt="Samsung Galaxy S25 Ultra" loading="lazy" >
@@ -186,7 +188,7 @@
                 </div>
             </div>
 
-            <!-- Continue with all Samsung products -->
+            
             <div class="product-card animate-pop-in" data-brand="samsung" data-category="mobile">
                 <div class="product-image">
                     <img src="images/samsung/a35.jpg" alt="Samsung Galaxy A35" loading="lazy">
@@ -231,6 +233,8 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="product-grid" id="realme">
 
             <!-- Realme Products -->
             <div class="product-card animate-pop-in" data-brand="realme" data-category="mobile">
@@ -263,7 +267,6 @@
                 </div>
             </div>
 
-            <!-- Continue with all Realme products -->
             <div class="product-card animate-pop-in" data-brand="realme" data-category="mobile">
                 <div class="product-image">
                     <img src="images/realme/12x.jpg" alt="Realme 12X 5G" loading="lazy">
@@ -279,7 +282,7 @@
                 </div>
             </div>
 
-            <div class="product-card animate-pop-in" data-brand="realme" data-category="mobile">
+            <div class="product-card animate-pop-in" data-brand="realme" data-category="mobile" >
                 <div class="product-image">
                     <img src="images/realme/c63.jpg" alt="Realme C63" loading="lazy">
                 </div>
@@ -308,6 +311,7 @@
                     </div>
                 </div>
             </div>
+        </div>   
 
             <!-- Apple Products -->
             <div class="product-card animate-pop-in" data-brand="apple" data-category="mobile">
