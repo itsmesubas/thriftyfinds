@@ -63,42 +63,101 @@
         }
     });
 
-    // Form submission
-    const userLoginForm = document.getElementById('userLoginForm');
-    const sellerLoginForm = document.getElementById('sellerLoginForm');
+   // Update user login form submission
+userLoginForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const email = document.getElementById('userEmail').value;
+    const password = document.getElementById('userPassword').value;
+    const interests = [];
+    document.querySelectorAll('input[name="interests"]:checked').forEach(checkbox => {
+        interests.push(checkbox.value);
+    });
+    const budget = document.getElementById('userBudget').value;
 
-    userLoginForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const email = document.getElementById('userEmail').value;
-        const password = document.getElementById('userPassword').value;
-        
-        // Get recommendation preferences
-        const interests = [];
-        document.querySelectorAll('input[name="interests"]:checked').forEach(checkbox => {
-            interests.push(checkbox.value);
+    try {
+        const response = await fetch('login.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email: email,
+                password: password,
+                interests: interests,
+                budget: budget
+            })
         });
-        const budget = document.getElementById('userBudget').value;
         
+        const data = await response.json();
         
-        console.log('User login:', { email, password, interests, budget });
-        
-        // Simulate successful login
-        simulateUserLogin(email, interests, budget);
-        closeModal(userLoginModal);
-    });
+        if (data.success) {
+            simulateUserLogin(email, interests, budget);
+            closeModal(userLoginModal);
+        } else {
+            alert(data.message || 'Login failed');
+        }
+    } catch (error) {
+        console.error('Login error:', error);
+        alert('Login failed');
+    }
+});
 
-    sellerLoginForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const email = document.getElementById('sellerEmail').value;
-        const password = document.getElementById('sellerPassword').value;
+// Update seller login form submission
+sellerLoginForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const email = document.getElementById('sellerEmail').value;
+    const password = document.getElementById('sellerPassword').value;
+
+    try {
+        const response = await fetch('login.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email: email,
+                password: password,
+                user_type: 'seller'
+            })
+        });
         
+        const data = await response.json();
         
-        console.log('Seller login:', { email, password });
+        if (data.success) {
+            simulateSellerLogin(email);
+            closeModal(sellerLoginModal);
+        } else {
+            alert(data.message || 'Login failed');
+        }
+    } catch (error) {
+        console.error('Login error:', error);
+        alert('Login failed');
+    }
+});
+
+// Add registration function
+async function registerUser(email, password, userType, interests, budget) {
+    try {
+        const response = await fetch('register.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email: email,
+                password: password,
+                user_type: userType,
+                interests: interests,
+                budget: budget
+            })
+        });
         
-        // Simulate successful login
-        simulateSellerLogin(email);
-        closeModal(sellerLoginModal);
-    });
+        return await response.json();
+    } catch (error) {
+        console.error('Registration error:', error);
+        return { success: false, message: 'Registration failed' };
+    }
+}
 
     // Simulate user login and show recommendations
     function simulateUserLogin(email, interests, budget) {
@@ -424,14 +483,3 @@ document.addEventListener('DOMContentLoaded', function() {
         card.style.display = 'block';
     });
 });
-// Update the simulateSellerLogin function
-function simulateSellerLogin(email) {
-    // In a real app, you would:
-    // 1. Verify credentials with server
-    // 2. Get a session token
-    // 3. Redirect to dashboard
-    
-    // For demo purposes:
-    localStorage.setItem('sellerToken', 'demo-seller-token');
-    window.location.href = 'seller-dashboard.html';
-}
