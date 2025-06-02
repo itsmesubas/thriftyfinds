@@ -135,7 +135,7 @@ sellerLoginForm.addEventListener('submit', async function(e) {
     }
 });
 
-// Add registration function
+// Added registration function
 async function registerUser(email, password, userType, interests, budget) {
     try {
         const response = await fetch('register.php', {
