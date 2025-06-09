@@ -12,7 +12,6 @@ try {
 } catch(PDOException $e) {
     die("Connection failed: " . $e->getMessage());
 }
-
 // Start session
 session_start();
 ?>
