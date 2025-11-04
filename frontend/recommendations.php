@@ -5,6 +5,10 @@ header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 require_once 'config.php';
 
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+    exit(0);
+}
+
 session_start();
 
 if (!isset($_SESSION['user_id'])) {

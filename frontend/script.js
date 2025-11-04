@@ -63,7 +63,8 @@ window.addEventListener('click', (e) => {
     }
 });
 
-// User login form submission
+
+  // User login form submission
 document.getElementById('userLoginForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     const email = document.getElementById('userEmail').value;
@@ -74,7 +75,12 @@ document.getElementById('userLoginForm').addEventListener('submit', async functi
     });
     const budget = document.getElementById('userBudget').value;
 
-    console.log('Login attempt:', { email, password, interests, budget });
+    console.log('Login attempt:', { 
+        email: email, 
+        password: password, 
+        interests: interests, 
+        budget: budget 
+    });
 
     try {
         const response = await fetch('login.php', {
@@ -91,23 +97,34 @@ document.getElementById('userLoginForm').addEventListener('submit', async functi
             })
         });
         
-        const data = await response.json();
-        console.log('Login response:', data);
+        console.log('Response status:', response.status);
+        
+        const responseText = await response.text();
+        console.log('Raw response:', responseText);
+        
+        let data;
+        try {
+            data = JSON.parse(responseText);
+        } catch (parseError) {
+            console.error('JSON parse error:', parseError);
+            throw new Error('Server returned invalid JSON: ' + responseText);
+        }
+        
+        console.log('Parsed data:', data);
         
         if (data.success) {
+            alert('Login successful! Welcome ' + email);
             simulateUserLogin(email, interests, budget);
             closeModal(userLoginModal);
-            // Load recommendations after successful login
             setTimeout(loadRecommendations, 1000);
         } else {
             alert('Login failed: ' + data.message);
         }
     } catch (error) {
         console.error('Login error:', error);
-        alert('Login failed: ' + error.message);
+        alert('Login error: ' + error.message);
     }
 });
-
 // Seller login form submission
 document.getElementById('sellerLoginForm').addEventListener('submit', async function(e) {
     e.preventDefault();

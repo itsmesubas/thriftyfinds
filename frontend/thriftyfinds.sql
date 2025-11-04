@@ -1,8 +1,9 @@
-
+-- Create database
+CREATE DATABASE IF NOT EXISTS thriftyfinds;
 USE thriftyfinds;
 
 -- Users table
-CREATE TABLE users (
+CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(255) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
@@ -13,7 +14,7 @@ CREATE TABLE users (
 );
 
 -- Products table
-CREATE TABLE products (
+CREATE TABLE IF NOT EXISTS products (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     description TEXT,
@@ -24,12 +25,16 @@ CREATE TABLE products (
     rating DECIMAL(3,2) DEFAULT 0.0,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
--- Insert sample users (with simple passwords for testing)
+
+-- Clear existing data
+DELETE FROM users;
+DELETE FROM products;
+
+-- Insert sample users with EXACT passwords
 INSERT INTO users (email, password, user_type, interests, budget_range) VALUES
 ('user@example.com', 'password123', 'user', '["samsung", "apple"]', '50-100'),
 ('seller@example.com', 'password123', 'seller', NULL, NULL),
 ('test@test.com', 'test123', 'user', '["samsung", "realme"]', '20-50');
-
 
 -- Insert sample products
 INSERT INTO products (title, description, price, brand, category, image_url, rating) VALUES
