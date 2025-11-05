@@ -94,10 +94,10 @@
                     <div class="form-group">
                         <label>What's your typical budget range?</label>
                         <select id="userBudget">
-                            <option value="0-20">$0 - $20</option>
-                            <option value="20-50">$20 - $50</option>
-                            <option value="50-100">$50 - $100</option>
-                            <option value="100+">$100+</option>
+                            <option value="0-20">Rs.1500 - Rs.5000</option>
+                            <option value="20-50">Rs.5000 - Rs.10000</option>
+                            <option value="50-100">Rs.10000 - Rs.15000</option>
+                            <option value="100+">Rs.20000+</option>
                         </select>
                     </div>
                 </div>
@@ -128,8 +128,60 @@
     </div>
 
   <!-- Add this filter section above the featured products -->
+   <!-- Featured Products Section -->
+<section id="products" class="featured-products">
+    <div class="container">
+        <h2>Featured Products</h2>
+        
+        <!-- Product Filters -->
+        <div class="product-filters">
+            <div class="filter-group">
+                <label for="brand-filter">Filter by Brand:</label>
+                <select id="brand-filter">
+                    <option value="all">All Brands</option>
+                    <option value="samsung">Samsung</option>
+                    <option value="apple">Apple</option>
+                    <option value="realme">Realme</option>
+                    <option value="tecno">Tecno</option>
+                    <option value="nokia">Nokia</option>
+                    <option value="oppo">Oppo</option>
+                    <option value="oneplus">OnePlus</option>
+                    <option value="xiaomi">Xiaomi</option>
+                    <option value="vivo">Vivo</option>
+                    <option value="infinix">Infinix</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="category-filter">Filter by Category:</label>
+                <select id="category-filter">
+                    <option value="all">All Categories</option>
+                    <option value="mobile">Mobile Phones</option>
+                    <option value="tablet">Tablets</option>
+                    <option value="accessory">Accessories</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <button id="resetFilters" class="btn btn-outline">Reset Filters</button>
+            </div>
+        </div>
+        
+        <!-- Products will be loaded here dynamically -->
+        <div class="product-grid" id="productsGrid">
+            <div class="loading-products">
+                <i class="fas fa-spinner fa-spin"></i> Loading products...
+            </div>
+        </div>
+        
+        <!-- Load More Button -->
+        <div class="load-more-container" id="loadMoreContainer" style="display: none;">
+            <button id="loadMoreBtn" class="btn">Load More Products</button>
+        </div>
+    </div>
+</section>
 <!-- Fix the filter section -->
-<section class="product-filters">
+<!-- <section class="product-filters">
     <div class="container">
         <div class="filter-group">
             <label for="brand-filter">Filter by Brand:</label>
@@ -148,17 +200,17 @@
             </select>
         </div>
     </div>
-</section>
+</section> -->
 
 <!-- Featured Products Section -->
-<section id="products" class="featured-products">
+<!-- <section id="products" class="featured-products">
     <div class="container">
         <h2>Featured Products</h2>
         <div class="product-grid" id="samsung">
-            
+             -->
             <!-- Samsung Products -->
 
-            <div class="product-card animate-pop-in" data-brand="samsung" data-category="mobile" id="samsung">
+            <!-- <div class="product-card animate-pop-in" data-brand="samsung" data-category="mobile" id="samsung">
                 <div class="product-image">
                     <img src="images/samsung/Samsung-Galaxy-S25-Ultra-Titanium-Grey.jpg" alt="Samsung Galaxy S25 Ultra" loading="lazy" >
                 </div>
@@ -168,7 +220,7 @@
                     <div class="product-rating">★★★★★</div>
                     <div class="product-actions">
                         <button class="add-to-cart">Buy Now</button>
-                       
+                        <button class="view-details" data-product-id="1">View Details</button>
                     </div>
                 </div>
             </div>
@@ -183,7 +235,7 @@
                     <div class="product-rating">★★★★★</div>
                     <div class="product-actions">
                         <button class="add-to-cart">Buy Now</button>
-                        
+                         <button class="view-details" data-product-id="2">View Details</button>
                     </div>
                 </div>
             </div>
@@ -199,7 +251,7 @@
                     <div class="product-rating">★★★★☆</div>
                     <div class="product-actions">
                         <button class="add-to-cart">Buy Now</button>
-                       
+                        <button class="view-details" data-product-id="3">View Details</button>
                     </div>
                 </div>
             </div>
@@ -209,7 +261,7 @@
             
         </div>
 
-            <!-- Realme Products -->
+          
         <div class="product-grid" id="realme">
             <div class="product-card animate-pop-in" data-brand="realme" data-category="mobile">
                 <div class="product-image">
@@ -221,16 +273,13 @@
                     <div class="product-rating">★★★★☆</div>
                     <div class="product-actions">
                         <button class="add-to-cart">Buy Now</button>
-                       
+                        <button class="view-details" data-product-id="4">View Details</button>
                     </div>
                 </div>
             </div>
 
             
-           
         
-  
-            <!-- Apple Products -->
             <div class="product-card animate-pop-in" data-brand="apple" data-category="mobile">
                 <div class="product-image">
                     <img src="images/apple/15promax.jpg" alt="iPhone 15 Pro Max" loading="lazy">
@@ -241,7 +290,7 @@
                     <div class="product-rating">★★★★★</div>
                     <div class="product-actions">
                         <button class="add-to-cart">Buy Now</button>
-                        
+                         <button class="view-details" data-product-id="5">View Details</button>
                     </div>
                 </div>
             </div>
@@ -251,21 +300,21 @@
           </div>  
         </div>
     </div>
-</section>
+</section> -->
 
-    <!-- Recommendation Section -->
+    <!-- Recommendation Section
     <section class="recommendations">
         <div class="container">
             <h2>Recommended For You</h2>
             <div class="recommendation-grid">
-                <!-- Recommendations will be loaded here after login -->
-                <div class="login-prompt">
+                Recommendations will be loaded here after login -->
+                <!-- <div class="login-prompt">
                     <p>Login to see personalized recommendations!</p>
                     <button id="recLoginBtn" class="btn">Login Now</button>
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Footer -->
     <footer id="contact" class="footer">
@@ -297,5 +346,72 @@
     </footer>
    
     <script src="script.js"></script>
+    <script>
+// Check URL parameters for user type
+const urlParams = new URLSearchParams(window.location.search);
+const userType = urlParams.get('user_type');
+
+// If coming from seller dashboard, preserve session
+if (userType === 'seller') {
+    // Check if seller is logged in
+    const sellerEmail = localStorage.getItem('seller_email');
+    if (sellerEmail) {
+        // Update auth buttons to show seller is logged in
+        const authButtons = document.querySelector('.auth-buttons');
+        if (authButtons) {
+            authButtons.innerHTML = `
+                <span style="margin-right: 15px; color: var(--primary-color);">
+                    <i class="fas fa-store"></i> ${sellerEmail}
+                </span>
+                <button onclick="goToSellerDashboard()" class="btn"><i class="fas fa-tachometer-alt"></i> Dashboard</button>
+                <button onclick="sellerLogout()" class="btn btn-outline"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            `;
+        }
+    }
+}
+
+// Go to seller dashboard
+function goToSellerDashboard() {
+    window.location.href = 'seller_dashboard.html';
+}
+
+// Seller logout from home page
+function sellerLogout() {
+    if (confirm('Are you sure you want to logout?')) {
+        localStorage.removeItem('seller_email');
+        localStorage.removeItem('user_type');
+        window.location.href = 'index.html';
+    }
+}
+
+// Check if seller is already logged in when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    const sellerEmail = localStorage.getItem('seller_email');
+    const userType = localStorage.getItem('user_type');
+    
+    if (sellerEmail && userType === 'seller') {
+        // Seller is logged in, update UI
+        const authButtons = document.querySelector('.auth-buttons');
+        if (authButtons && !authButtons.innerHTML.includes('fa-store')) {
+            authButtons.innerHTML = `
+                <span style="margin-right: 15px; color: var(--primary-color);">
+                    <i class="fas fa-store"></i> ${sellerEmail}
+                </span>
+                <button onclick="goToSellerDashboard()" class="btn"><i class="fas fa-tachometer-alt"></i> Dashboard</button>
+                <button onclick="sellerLogout()" class="btn btn-outline"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            `;
+        }
+    }
+});
+</script>
+<!-- Product Details Modal -->
+<div id="productDetailsModal" class="modal">
+    <div class="modal-content product-details-modal">
+        <span class="close-modal">&times;</span>
+        <div class="product-details" id="productDetailsContent">
+            <!-- Product details will be loaded here -->
+        </div>
+    </div>
+</div>
 </body>
 </html>
