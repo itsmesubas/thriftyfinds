@@ -1,6 +1,4 @@
-Here’s a clean, professional **README.md** text you can directly copy into your GitHub for your **Thrifty Finds** website:
 
----
 
 # 🛒 Thrifty Finds – Second-Hand Electronics Marketplace
 
