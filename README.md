@@ -1,8 +1,8 @@
-🛒 Thrifty Finds – Second-Hand Electronics Marketplace
+### 🛒 Thrifty Finds – Second-Hand Electronics Marketplace
 Thrifty Finds is a web-based platform designed to buy and sell second-hand electronic items easily and securely. The system includes separate dashboards for users and sellers, product listings, and a fully integrated Khalti payment gateway for smooth transactions. Built as a college project using HTML, CSS, JavaScript, PHP, and MySQL.
 
-🚀 Features
-🔐 Authentication
+### 🚀 Features
+### 🔐 Authentication
 Secure user login and registration
 Seller login and product management
 👤 User Dashboard
