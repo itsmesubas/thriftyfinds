@@ -45,6 +45,7 @@ Payment Gateway: Khalti API
 🧪 How to Run Locally
 Clone the repository:
 
+
 git clone https://github.com/yourusername/thrifty-finds.git
 Move project to your XAMPP or WAMP htdocs folder.
 
