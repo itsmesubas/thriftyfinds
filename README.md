@@ -3,6 +3,7 @@ Thrifty Finds is a web-based platform designed to buy and sell second-hand elect
 
 ### 🚀 Features
 ### 🔐 Authentication
+Outh
 Secure user login and registration
 Seller login and product management
 👤 User Dashboard
